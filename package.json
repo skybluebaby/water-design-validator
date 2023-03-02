@@ -1,0 +1,15 @@
+{
+  "name": "water-design-validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "validator",
+    "validate"
+  ],
+  "author": "skyblue_baby@163.com",
+  "license": "ISC"
+}
