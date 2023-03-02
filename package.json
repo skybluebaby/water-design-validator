@@ -1,15 +1,44 @@
 {
   "name": "water-design-validator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "一个javascript的数据校验库",
+  "main": "./dist/index.min.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "clean:win": "rimraf dist",
+    "clean:mac": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skybluebaby/water-design-validator.git"
   },
   "keywords": [
     "validator",
     "validate"
   ],
   "author": "skyblue_baby@163.com",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skybluebaby/water-design-validator/issues"
+  },
+  "homepage": "https://github.com/skybluebaby/water-design-validator#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.35.0",
+    "fork-ts-checker-webpack-plugin": "^7.3.0",
+    "jest": "^29.4.3",
+    "ts-jest": "^29.0.5",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }
