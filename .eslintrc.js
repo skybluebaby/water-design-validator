@@ -19,5 +19,6 @@ module.exports = {
     'global-require': 1, // 所有调用require()都位于模块的顶层
     '@typescript-eslint/no-var-requires': 0, //允许require导入模块
     '@typescript-eslint/no-explicit-any': ['off'], // 允许使用any
+    '@typescript-eslint/no-empty-function': 'off', // 允许empty-function
   },
 };
