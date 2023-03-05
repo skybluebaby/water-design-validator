@@ -1,6 +1,7 @@
 export type ReturnCode = {
   code: 'success' | 'fail';
   message: string;
+  passed: boolean;
 };
 
 type StringRule = {
@@ -15,3 +16,15 @@ export type CheckString = (
   rule?: StringRule | 'string'
 ) => ReturnCode;
 declare const checkString: CheckString;
+
+type NumberRule = {
+  type?: 'number';
+  format?: RegExp;
+  min?: number;
+  max?: number;
+};
+export type CheckNumber = (
+  input?: any,
+  rule?: NumberRule | 'number'
+) => ReturnCode;
+declare const checkNumber: CheckNumber;
