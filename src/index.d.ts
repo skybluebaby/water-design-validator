@@ -37,3 +37,10 @@ export type CheckInteger = (
   rule?: IntegerRule | 'integer'
 ) => ReturnCode;
 declare const checkInteger: CheckInteger;
+
+interface IdRule {
+  type?: 'id';
+  idType?: 'string' | 'number';
+}
+export type CheckId = (input?: any, rule?: IdRule | 'id') => ReturnCode;
+declare const checkId: CheckId;
