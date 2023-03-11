@@ -4,7 +4,7 @@ export interface ReturnCode {
   passed: boolean;
 }
 
-interface StringRule {
+export interface StringRule {
   type?: 'string';
   required?: boolean;
   format?: RegExp;
@@ -44,3 +44,9 @@ interface IdRule {
 }
 export type CheckId = (input?: any, rule?: IdRule | 'id') => ReturnCode;
 declare const checkId: CheckId;
+
+interface UrlRule extends Omit<StringRule, 'type'> {
+  type?: 'url';
+}
+export type CheckUrl = (input?: any, rule?: UrlRule | 'url') => ReturnCode;
+declare const checkUrl: CheckUrl;
