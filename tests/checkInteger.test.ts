@@ -1,41 +1,47 @@
 import { describe, expect, test } from '@jest/globals';
-import checkInteger from '../src/checkInteger';
+import { checkInteger } from '../src';
 
 describe('checkInteger module', () => {
-  test('undefined is an integer', () => {
+  test('input undefined', () => {
     expect(checkInteger().passed).toBe(false);
   });
-  test('string is an integer', () => {
+  test('input is string', () => {
     expect(checkInteger('a').passed).toBe(false);
+  });
+  test('rule is undefined', () => {
+    expect(checkInteger(1).passed).toBe(true);
+  });
+  test('rule is undefined', () => {
+    expect(checkInteger(1.1).passed).toBe(false);
   });
   test('rule is string', () => {
     expect(checkInteger(1, 'integer').passed).toBe(true);
   });
-  test('1 is an integer', () => {
-    expect(checkInteger(1).passed).toBe(true);
+  test('rule is string', () => {
+    expect(checkInteger(1.1, 'integer').passed).toBe(false);
   });
-  test('0 is an integer', () => {
-    expect(checkInteger(0).passed).toBe(true);
+  test('rule is object', () => {
+    expect(checkInteger(1, { type: 'integer' }).passed).toBe(true);
   });
-  test('0.1 is an integer', () => {
-    expect(checkInteger(0.1).passed).toBe(false);
+  test('rule is object', () => {
+    expect(checkInteger(1.1, { type: 'integer' }).passed).toBe(false);
   });
-  test('has rule.format', () => {
+  test('rule.format=/b/', () => {
     expect(checkInteger(1, { format: /b/ }).passed).toBe(false);
   });
-  test('has rule.format', () => {
+  test('rule.format=/[1]/', () => {
     expect(checkInteger(1, { format: /[1]/ }).passed).toBe(true);
   });
-  test('has rule.min', () => {
+  test('rule.min=1', () => {
     expect(checkInteger(1, { min: 1 }).passed).toBe(true);
   });
-  test('has rule.min', () => {
+  test('rule.min=2', () => {
     expect(checkInteger(1, { min: 2 }).passed).toBe(false);
   });
-  test('has rule.max', () => {
+  test('rule.max=2', () => {
     expect(checkInteger(3, { max: 2 }).passed).toBe(false);
   });
-  test('has rule.max', () => {
+  test('rule.max=3', () => {
     expect(checkInteger(3, { max: 3 }).passed).toBe(true);
   });
 });

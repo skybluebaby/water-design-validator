@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import typeOf from '../src/typeOf';
+import { typeOf } from '../src';
 
 describe('typeOf module', () => {
   test('typeof string', () => {

@@ -50,3 +50,12 @@ interface UrlRule extends Omit<StringRule, 'type'> {
 }
 export type CheckUrl = (input?: any, rule?: UrlRule | 'url') => ReturnCode;
 declare const checkUrl: CheckUrl;
+
+interface ObjectRule {
+  type?: 'object';
+}
+export type CheckObject = (
+  input?: any,
+  rule?: ObjectRule | 'object'
+) => ReturnCode;
+declare const checkObject: CheckObject;

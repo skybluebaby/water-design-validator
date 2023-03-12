@@ -23,13 +23,13 @@ const checkId: CheckId = (input, rules) => {
   if (rules.idType && rules.idType === 'string' && inputType === 'number') {
     return composeResult(
       fail_code,
-      'Expected a string id but received a number id'
+      'Expected a string-id but received a number-id'
     );
   }
   if (rules.idType && rules.idType === 'number' && inputType === 'string') {
     return composeResult(
       fail_code,
-      'Expected a number id but received a string id'
+      'Expected a number-id but received a string-id'
     );
   }
   return composeResult(success_code);
