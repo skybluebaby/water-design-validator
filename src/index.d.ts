@@ -4,7 +4,7 @@ export interface ReturnCode {
   passed: boolean;
 }
 
-export interface StringRule {
+export interface StringRules {
   type?: 'string';
   required?: boolean;
   format?: RegExp;
@@ -13,11 +13,11 @@ export interface StringRule {
 }
 export type CheckString = (
   input?: any,
-  rule?: StringRule | 'string'
+  rules?: StringRules | 'string'
 ) => ReturnCode;
 declare const checkString: CheckString;
 
-export interface NumberRule {
+export interface NumberRules {
   type?: 'number';
   format?: RegExp;
   min?: number;
@@ -25,37 +25,48 @@ export interface NumberRule {
 }
 export type CheckNumber = (
   input?: any,
-  rule?: NumberRule | 'number'
+  rules?: NumberRules | 'number'
 ) => ReturnCode;
 declare const checkNumber: CheckNumber;
 
-interface IntegerRule extends Omit<NumberRule, 'type'> {
+interface IntegerRules extends Omit<NumberRules, 'type'> {
   type?: 'integer';
 }
 export type CheckInteger = (
   input?: any,
-  rule?: IntegerRule | 'integer'
+  rules?: IntegerRules | 'integer'
 ) => ReturnCode;
 declare const checkInteger: CheckInteger;
 
-interface IdRule {
+interface IdRules {
   type?: 'id';
   idType?: 'string' | 'number';
 }
-export type CheckId = (input?: any, rule?: IdRule | 'id') => ReturnCode;
+export type CheckId = (input?: any, rules?: IdRules | 'id') => ReturnCode;
 declare const checkId: CheckId;
 
-interface UrlRule extends Omit<StringRule, 'type'> {
+interface UrlRules extends Omit<StringRules, 'type'> {
   type?: 'url';
 }
-export type CheckUrl = (input?: any, rule?: UrlRule | 'url') => ReturnCode;
+export type CheckUrl = (input?: any, rules?: UrlRules | 'url') => ReturnCode;
 declare const checkUrl: CheckUrl;
 
-interface ObjectRule {
+interface ObjectRules {
   type?: 'object';
 }
 export type CheckObject = (
   input?: any,
-  rule?: ObjectRule | 'object'
+  rules?: ObjectRules | 'object'
 ) => ReturnCode;
 declare const checkObject: CheckObject;
+
+interface ArrayRules {
+  type?: 'array';
+  min?: number;
+  max?: number;
+}
+export type CheckArray = (
+  input?: any,
+  rules?: ArrayRules | 'array'
+) => ReturnCode;
+declare const checkArray: CheckArray;

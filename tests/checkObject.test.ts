@@ -8,22 +8,22 @@ describe('checkObject module', () => {
   test('input is object', () => {
     expect(checkObject({}).passed).toBe(true);
   });
-  test('rule is undefined', () => {
+  test('rules is undefined', () => {
     expect(checkObject('').passed).toBe(false);
   });
-  test('rule is undefined', () => {
+  test('rules is undefined', () => {
     expect(checkObject({ name: 'zs' }).passed).toBe(true);
   });
-  test('rule is string', () => {
+  test('rules is string', () => {
     expect(checkObject('', 'object').passed).toBe(false);
   });
-  test('rule is string', () => {
+  test('rules is string', () => {
     expect(checkObject({}, 'object').passed).toBe(true);
   });
-  test('rule is object', () => {
+  test('rules is object', () => {
     expect(checkObject({}, { type: 'object' }).passed).toBe(true);
   });
-  test('rule is object', () => {
+  test('rules is object', () => {
     expect(checkObject(123, { type: 'object' }).passed).toBe(false);
   });
 });

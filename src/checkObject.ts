@@ -5,7 +5,7 @@ import { fail_code, success_code } from './constants';
 import { CheckObject } from './index.d';
 
 /**
- * 检查输入参数是否是一个对象
+ * 检查输入参数是否是一个纯正的对象
  * @param {object} input
  * @param {object} rules
  * @returns
@@ -20,12 +20,9 @@ const checkObject: CheckObject = (input, rules) => {
   if (inputType !== 'object') {
     return composeResult(
       fail_code,
-      `Expected a string but received a ${inputType}`
+      `Expected a plain object but received a ${inputType}`
     );
   }
-  // if (typeOf(rules.properties) === 'object') {
-  //   checker(input, rules.properties, { key, errors });
-  // }
   return composeResult(success_code);
 };
 

@@ -8,40 +8,40 @@ describe('checkNumber module', () => {
   test('input is number', () => {
     expect(checkNumber(1.1).passed).toBe(true);
   });
-  test('rule is undefined', () => {
+  test('rules is undefined', () => {
     expect(checkNumber(1).passed).toBe(true);
   });
-  test('rule is undefined', () => {
+  test('rules is undefined', () => {
     expect(checkNumber('1').passed).toBe(false);
   });
-  test('rule is string', () => {
+  test('rules is string', () => {
     expect(checkNumber(1, 'number').passed).toBe(true);
   });
-  test('rule is string', () => {
+  test('rules is string', () => {
     expect(checkNumber('1', 'number').passed).toBe(false);
   });
-  test('rule is object', () => {
+  test('rules is object', () => {
     expect(checkNumber(1, { type: 'number' }).passed).toBe(true);
   });
-  test('rule is object', () => {
+  test('rules is object', () => {
     expect(checkNumber('1', { type: 'number' }).passed).toBe(false);
   });
-  test('rule.format=/b/', () => {
+  test('rules.format=/b/', () => {
     expect(checkNumber(1, { format: /b/ }).passed).toBe(false);
   });
-  test('rule.format=/[1]/', () => {
+  test('rules.format=/[1]/', () => {
     expect(checkNumber(1, { format: /[1]/ }).passed).toBe(true);
   });
-  test('rule.min=1', () => {
+  test('rules.min=1', () => {
     expect(checkNumber(1, { min: 1 }).passed).toBe(true);
   });
-  test('rule.min=2', () => {
+  test('rules.min=2', () => {
     expect(checkNumber(1, { min: 2 }).passed).toBe(false);
   });
-  test('rule.max=2', () => {
+  test('rules.max=2', () => {
     expect(checkNumber(3, { max: 2 }).passed).toBe(false);
   });
-  test('rule.max=3', () => {
+  test('rules.max=3', () => {
     expect(checkNumber(3, { max: 3 }).passed).toBe(true);
   });
 });

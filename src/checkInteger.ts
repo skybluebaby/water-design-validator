@@ -2,7 +2,7 @@ import merge from './utils/merge';
 import composeResult from './utils/composeResult';
 import checkNumber from './checkNumber';
 import { success_code, fail_code } from './constants';
-import { CheckInteger, NumberRule } from './index.d';
+import { CheckInteger, NumberRules } from './index.d';
 
 /**
  * 检查输入参数是否是一个整型数字
@@ -16,7 +16,7 @@ const checkInteger: CheckInteger = (input, rules) => {
   } else {
     rules = merge(rules);
   }
-  const result = checkNumber(input, rules as NumberRule);
+  const result = checkNumber(input, rules as NumberRules);
   if (result.code === success_code && !Number.isInteger(input)) {
     return composeResult(fail_code, 'The number is expected an integer');
   }

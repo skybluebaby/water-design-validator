@@ -5,6 +5,7 @@ import checkInteger from './checkInteger';
 import checkId from './checkId';
 import checkUrl from './checkUrl';
 import checkObject from './checkObject';
+import checkArray from './checkArray';
 
 export {
   typeOf,
@@ -14,4 +15,5 @@ export {
   checkId,
   checkUrl,
   checkObject,
+  checkArray,
 };

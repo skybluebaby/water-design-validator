@@ -8,40 +8,40 @@ describe('checkInteger module', () => {
   test('input is string', () => {
     expect(checkInteger('a').passed).toBe(false);
   });
-  test('rule is undefined', () => {
+  test('rules is undefined', () => {
     expect(checkInteger(1).passed).toBe(true);
   });
-  test('rule is undefined', () => {
+  test('rules is undefined', () => {
     expect(checkInteger(1.1).passed).toBe(false);
   });
-  test('rule is string', () => {
+  test('rules is string', () => {
     expect(checkInteger(1, 'integer').passed).toBe(true);
   });
-  test('rule is string', () => {
+  test('rules is string', () => {
     expect(checkInteger(1.1, 'integer').passed).toBe(false);
   });
-  test('rule is object', () => {
+  test('rules is object', () => {
     expect(checkInteger(1, { type: 'integer' }).passed).toBe(true);
   });
-  test('rule is object', () => {
+  test('rules is object', () => {
     expect(checkInteger(1.1, { type: 'integer' }).passed).toBe(false);
   });
-  test('rule.format=/b/', () => {
+  test('rules.format=/b/', () => {
     expect(checkInteger(1, { format: /b/ }).passed).toBe(false);
   });
-  test('rule.format=/[1]/', () => {
+  test('rules.format=/[1]/', () => {
     expect(checkInteger(1, { format: /[1]/ }).passed).toBe(true);
   });
-  test('rule.min=1', () => {
+  test('rules.min=1', () => {
     expect(checkInteger(1, { min: 1 }).passed).toBe(true);
   });
-  test('rule.min=2', () => {
+  test('rules.min=2', () => {
     expect(checkInteger(1, { min: 2 }).passed).toBe(false);
   });
-  test('rule.max=2', () => {
+  test('rules.max=2', () => {
     expect(checkInteger(3, { max: 2 }).passed).toBe(false);
   });
-  test('rule.max=3', () => {
+  test('rules.max=3', () => {
     expect(checkInteger(3, { max: 3 }).passed).toBe(true);
   });
 });

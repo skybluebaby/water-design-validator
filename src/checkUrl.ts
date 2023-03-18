@@ -1,7 +1,7 @@
 import { web_url_reg } from './constants';
 import merge from './utils/merge';
 import checkString from './checkString';
-import { CheckUrl, StringRule } from './index.d';
+import { CheckUrl, StringRules } from './index.d';
 
 const default_url_option = {
   format: web_url_reg,
@@ -21,7 +21,7 @@ const checkUrl: CheckUrl = (input, rules) => {
     rules = merge(rules, default_url_option);
   }
 
-  return checkString(input, rules as StringRule);
+  return checkString(input, rules as StringRules);
 };
 
 export default checkUrl;
